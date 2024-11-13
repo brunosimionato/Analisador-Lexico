@@ -107,21 +107,91 @@ header p {
 
 
 
+/* TABELA */
+.tabela {
+  max-width: 60%;
+  margin: 50px auto;
+  padding: 20px;
+  color: #333;
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+}
 
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: 'Poppins', sans-serif;
+}
 
+.table th, .table td {
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #a7a7a7;
+}
 
+.table thead th {
+  background-color: #9c9c9c;
+  color: #fff;
+  font-weight: 500;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
 
+.table thead th:first-child {
+  border-top-left-radius: 8px;
+}
 
+.table thead th:last-child {
+  border-top-right-radius: 8px;
+}
 
+.palavras-adicionadas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  height: 80px;
+  overflow: auto;
+  border: 1px solid #ddd;
+  padding: 10px;
+  background-color: white;
+  border: 1px solid #ccc;
+  max-width: 100%;
+  margin-bottom: 50px;
+  border-radius: 4px;
+}
 
+.palavra {
+  background-color: #9c9c9c;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: bold;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: fit-content;
+  max-height: 20px;
   
-  
+}
+
+.palavra:hover {
+  background-color: #808080;
+}
+
+
+
+
+
+
 
   
 footer {
   text-align: center;
   padding: 10px;
-  font-size: 0.9rem;
+  font-size: 15px;
   color: #999;
 }
   
