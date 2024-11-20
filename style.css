@@ -1,16 +1,18 @@
 body {
   font-family: 'Poppins', sans-serif;
-  line-height: 1;
   color: #333;
   background-color: #f4f4f9;
   margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
-  
+
 header {
   background: #498379;
   text-align: center;
-  padding: 15px 0;
-  font-size: 20px;
+  padding: 5px 0;
+  font-size: 18px;
   width: 100%;
   color: white;
 }
@@ -18,11 +20,11 @@ header {
 header p {
   font-size: 20px;
   color: white;
-  margin-top: -1px;
+  margin-top: -15px;
 }
 
 .container-inputs {
-  max-width: 50%;
+  max-width: 58%;
   margin: 50px auto;
   padding: 40px;
   color: #333;
@@ -51,7 +53,6 @@ header p {
   display: block;
 }
 
-
 .botoes {
   width: 100%;
   margin: 0 auto;
@@ -62,7 +63,6 @@ header p {
   margin-top: 20px;
   margin-bottom: 40px;
 }
-
 
 .botao-adicionar button {
   width: 100px;
@@ -104,17 +104,15 @@ header p {
 
 
 
-
-
-
 /* TABELA */
 .tabela {
-  max-width: 60%;
+  max-width: 58%;
   margin: 50px auto;
   padding: 20px;
   color: #333;
   font-family: 'Poppins', sans-serif;
   text-align: center;
+  margin-top: -50px;
 }
 
 .table {
@@ -124,7 +122,8 @@ header p {
 }
 
 .table th, .table td {
-  padding: 10px;
+  width: 60px;
+  height: 50px;
   text-align: center;
   border: 1px solid #a7a7a7;
 }
@@ -145,6 +144,9 @@ header p {
 .table thead th:last-child {
   border-top-right-radius: 8px;
 }
+
+
+
 
 .palavras-adicionadas {
   display: flex;
@@ -181,17 +183,41 @@ header p {
   background-color: #808080;
 }
 
+.destacado {
+  background-color: #529e43;
+  color: white;
+}
 
+.invalido {
+  background-color: #bb1f11;
+  color: white;
+}
 
+/* ANIMAÇÃO DE PALAVRA VALIDADA*/
+@keyframes expandirBorda {
+  0% {
+    border-width: 2px;
+    transform: scale(1.5);
+  }
+  50% {
+    border-width: 5px;
+    transform: scale(1.1);
+  }
+  100% {
+    border-width: 2px;
+    transform: scale(1);
+  }
+}
 
+.palavra-validada {
+  animation: expandirBorda 0.5s ease-in-out;
+  padding: 5px 10px;
+  border-radius: 20px;
+}
 
-
-
-  
 footer {
   text-align: center;
   padding: 10px;
   font-size: 15px;
   color: #999;
 }
-  
