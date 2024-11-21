@@ -1,89 +1,120 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ANALISADOR LÉXICO</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
-  <script src="scripts.js" defer></script>
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ANALISADOR LÉXICO</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script src="scripts.js" defer></script>
+  </head>
 
-<body>
-  <header>
-    <h1>ANALISADOR LÉXICO</h1>
-    <p>Linguagens Formais</p>
-  </header>
+  <body>
+    <header>
+      <h1>ANALISADOR LÉXICO</h1>
+      <p>Linguagens Formais</p>
+    </header>
 
-  <main>
-    <div class="container-inputs">
-      <div class="token">
-        <label class="token-label" for="token">TOKEN</label>
-        <input type="text" id="token" class="input-token">
-      </div>
-
-      <div class="botoes">
-        <div class="botao-adicionar">
-          <button type="button" name="btAdicionar" class="botao" id="adicionar" >ADICIONAR</button>
+    <main>
+      <div class="container-inputs">
+        <div class="token">
+          <label class="token-label" for="token">ADICIONAR TOKEN</label>
+          <input
+            type="text"
+            id="token"
+            class="input-token"
+            placeholder="Digite a palavra aqui"
+          />
         </div>
-        <div class="botao-limpar">
-          <button type="button" name="btLimpar" class="botao" id="limpar" >LIMPAR</button>
+
+        <div class="botoes">
+          <div class="botao-adicionar">
+            <button
+              type="button"
+              name="btAdicionar"
+              class="botao"
+              id="adicionar"
+            >
+              ADICIONAR
+            </button>
+          </div>
+          <div class="botao-limpar">
+            <button type="button" name="btLimpar" class="botao" id="limpar">
+              LIMPAR
+            </button>
+          </div>
+        </div>
+
+        <div class="palavras-adicionadas">
+          <h3>LISTA DE TOKENS:</h3>
+        </div>
+
+        <div class="validar-token">
+          <label class="token-label" for="validar-token">VALIDAR TOKEN</label>
+          <input
+            type="text"
+            id="validar-token"
+            class="input-token"
+            placeholder="Digite uma palavra para validar"
+          />
+        </div>
+
+        <div class="palavras-validadas-container">
+          <div class="validadas">
+            <h3>ACEITAS:</h3>
+            <ul id="lista-palavras-aceitas" class="lista-palavras"></ul>
+          </div>
+          <div class="rejeitadas">
+            <h3>REJEITADAS:</h3>
+            <ul id="lista-palavras-rejeitadas" class="lista-palavras"></ul>
+          </div>
         </div>
       </div>
 
-      <div class="palavras-adicionadas">
-
+      <div class="tabela">
+        <table id="table" class="table table-dark table-bordered">
+          <thead id="thead">
+            <tr>
+              <th class="text-center">δ</th>
+              <th class="text-center">A</th>
+              <th class="text-center">B</th>
+              <th class="text-center">C</th>
+              <th class="text-center">D</th>
+              <th class="text-center">E</th>
+              <th class="text-center">F</th>
+              <th class="text-center">G</th>
+              <th class="text-center">H</th>
+              <th class="text-center">I</th>
+              <th class="text-center">J</th>
+              <th class="text-center">K</th>
+              <th class="text-center">L</th>
+              <th class="text-center">M</th>
+              <th class="text-center">N</th>
+              <th class="text-center">O</th>
+              <th class="text-center">P</th>
+              <th class="text-center">Q</th>
+              <th class="text-center">R</th>
+              <th class="text-center">S</th>
+              <th class="text-center">T</th>
+              <th class="text-center">U</th>
+              <th class="text-center">V</th>
+              <th class="text-center">W</th>
+              <th class="text-center">X</th>
+              <th class="text-center">Y</th>
+              <th class="text-center">Z</th>
+            </tr>
+          </thead>
+          <tbody id="tbody"></tbody>
+        </table>
       </div>
-
-      <div class="validar-token">
-        <label class="token-label" for="validar-token">VALIDAR TOKEN</label>
-        <input type="text" id="validar-token" class="input-token">
-      </div>
-    </div>
-
-    <div class="tabela">
-      <table id="table" class="table table-dark table-bordered">
-        <thead id="thead">
-          <tr>
-            <th class="text-center">δ</th>
-            <th class="text-center">A</th>
-            <th class="text-center">B</th>
-            <th class="text-center">C</th>
-            <th class="text-center">D</th>
-            <th class="text-center">E</th>
-            <th class="text-center">F</th>
-            <th class="text-center">G</th>
-            <th class="text-center">H</th>
-            <th class="text-center">I</th>
-            <th class="text-center">J</th>
-            <th class="text-center">K</th>
-            <th class="text-center">L</th>
-            <th class="text-center">M</th>
-            <th class="text-center">N</th>
-            <th class="text-center">O</th>
-            <th class="text-center">P</th>
-            <th class="text-center">Q</th>
-            <th class="text-center">R</th>
-            <th class="text-center">S</th>
-            <th class="text-center">T</th>
-            <th class="text-center">U</th>
-            <th class="text-center">V</th>
-            <th class="text-center">W</th>
-            <th class="text-center">X</th>
-            <th class="text-center">Y</th>
-            <th class="text-center">Z</th>
-          </tr>
-        </thead>
-        <tbody id="tbody">
-
-        </tbody>
-      </table>
-    </div>
-  </main>
-  <footer>
-    <p>&copy; 2024 Disciplina de Linguagens Formais</p>
-  </footer>
-</body>
+    </main>
+    <footer>
+      <p>&copy; 2024 Disciplina de Linguagens Formais</p>
+    </footer>
+  </body>
 </html>
