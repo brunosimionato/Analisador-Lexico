@@ -1,5 +1,5 @@
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   color: #333;
   background-color: #f4f4f9;
   margin: 0;
@@ -25,10 +25,10 @@ header p {
 
 .container-inputs {
   max-width: 58%;
-  margin: 50px auto;
+  margin: 10px auto;
   padding: 40px;
   color: #333;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 .input-token {
@@ -71,7 +71,7 @@ header p {
   height: 40px;
   border-radius: 5px;
   font-size: 13px;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: bold;
   cursor: pointer;
   border: none;
@@ -85,7 +85,7 @@ header p {
   height: 40px;
   border-radius: 5px;
   font-size: 13px;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: bold;
   cursor: pointer;
   border: none;
@@ -102,6 +102,46 @@ header p {
   color: #ddd;
 }
 
+.palavras-adicionadas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  height: 80px;
+  overflow: auto;
+  border: 1px solid #ddd;
+  padding: 10px;
+  background-color: white;
+  border: 1px solid #ccc;
+  max-width: 100%;
+  margin-bottom: 50px;
+  border-radius: 4px;
+  align-items: center;
+
+}
+
+.palavras-adicionadas h3 {
+  display: flex;
+  font-size: 12px;
+  color: #333333b0;
+  align-items: center;
+  justify-self: center;
+}
+
+.palavra {
+  background-color: #9c9c9c;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: bold;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: fit-content;
+  max-height: 20px;
+}
+
 
 
 /* TABELA */
@@ -110,7 +150,7 @@ header p {
   margin: 50px auto;
   padding: 20px;
   color: #333;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   text-align: center;
   margin-top: -50px;
 }
@@ -118,10 +158,11 @@ header p {
 .table {
   width: 100%;
   border-collapse: collapse;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
-.table th, .table td {
+.table th,
+.table td {
   width: 60px;
   height: 50px;
   text-align: center;
@@ -145,26 +186,27 @@ header p {
   border-top-right-radius: 8px;
 }
 
-
-
-
-.palavras-adicionadas {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  height: 80px;
-  overflow: auto;
-  border: 1px solid #ddd;
+.palavras-validadas-container {
+  margin: 20px auto;
   padding: 10px;
   background-color: white;
+  border-radius: 8px;
   border: 1px solid #ccc;
-  max-width: 100%;
-  margin-bottom: 50px;
-  border-radius: 4px;
 }
 
-.palavra {
-  background-color: #9c9c9c;
+.palavras-validadas-container h3 {
+  display: flex;
+  font-size: 12px;
+  color: #333333b0;
+  align-items: center;
+}
+
+.lista-palavras {
+  list-style: none;
+  padding: 0;
+}
+
+.lista-palavras li {
   color: white;
   padding: 5px 10px;
   border-radius: 20px;
@@ -176,11 +218,15 @@ header p {
   justify-content: center;
   min-width: fit-content;
   max-height: 20px;
-  
+  margin: 2px;
 }
 
-.palavra:hover {
-  background-color: #808080;
+.validadas li {
+  background-color: #529e43;
+}
+
+.rejeitadas li {
+  background-color: #bb1f11;
 }
 
 .destacado {
