@@ -106,15 +106,23 @@ function preencheTabela(palavra) {
     if (!document.getElementById(`linha${j}`)) {
       corpoTabela.appendChild(linha);
     }
-
-    if (j === letras.length - 1) {
-      var linhaFinal = criaOuAtualizaLinha(j + 1, true, letras);
-      if (!document.getElementById(`linha${j + 1}`)) {
-        corpoTabela.appendChild(linhaFinal);
-      }
-    }
   });
+
+  // Garantir que o estado final da palavra seja marcado
+  var estadoFinal = letras.length;
+  var linhaFinal = criaOuAtualizaLinha(estadoFinal, true, letras);
+
+  // Atualizar ou adicionar a linha do estado final
+  if (!document.getElementById(`linha${estadoFinal}`)) {
+    corpoTabela.appendChild(linhaFinal);
+  } else {
+    var primeiraColuna = document.getElementById(`linha${estadoFinal}coluna0`);
+    if (primeiraColuna && !primeiraColuna.textContent.endsWith("*")) {
+      primeiraColuna.textContent += "*";
+    }
+  }
 }
+
 
 function criaOuAtualizaLinha(j, ultimaLetra, letras) {
   var linha = document.getElementById('linha' + j);
