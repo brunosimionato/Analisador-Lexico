@@ -108,11 +108,9 @@ function preencheTabela(palavra) {
     }
   });
 
-  // Garantir que o estado final da palavra seja marcado
   var estadoFinal = letras.length;
   var linhaFinal = criaOuAtualizaLinha(estadoFinal, true, letras);
 
-  // Atualizar ou adicionar a linha do estado final
   if (!document.getElementById(`linha${estadoFinal}`)) {
     corpoTabela.appendChild(linhaFinal);
   } else {
@@ -123,27 +121,27 @@ function preencheTabela(palavra) {
   }
 }
 
-
 function criaOuAtualizaLinha(j, ultimaLetra, letras) {
-  var linha = document.getElementById('linha' + j);
+  var linha = document.getElementById("linha" + j);
   if (!linha) {
-    linha = document.createElement('tr');
-    linha.id = 'linha' + j;
+    linha = document.createElement("tr");
+    linha.id = "linha" + j;
   }
 
-  var primeiraColuna = document.getElementById('linha' + j + 'coluna0');
+  var primeiraColuna = document.getElementById("linha" + j + "coluna0");
   if (!primeiraColuna) {
-    primeiraColuna = document.createElement('td');
-    primeiraColuna.id = 'linha' + j + 'coluna0';
-    primeiraColuna.className = 'colunaLateral';
+    primeiraColuna = document.createElement("td");
+    primeiraColuna.id = "linha" + j + "coluna0";
+    primeiraColuna.className = "colunaLateral";
     linha.appendChild(primeiraColuna);
-    primeiraColuna.textContent = 'q' + j + (ultimaLetra ? '*' : '');
+    primeiraColuna.textContent = "q" + j + (ultimaLetra ? "*" : "");
   }
 
   for (var i = 65; i <= 90; i++) {
     var letra = String.fromCharCode(i);
     var colunaId = `coluna${i}linha${j}`;
-    var coluna = document.getElementById(colunaId) || document.createElement("td");
+    var coluna =
+      document.getElementById(colunaId) || document.createElement("td");
 
     coluna.id = colunaId;
     coluna.className = "coluna";
@@ -170,7 +168,9 @@ function validaPalavra() {
   var valido = true;
   for (var i = 0; i < palavra.length; i++) {
     var letraAtual = palavra[i];
-    var coluna = document.getElementById(`coluna${letraAtual.charCodeAt(0)}linha${i}`);
+    var coluna = document.getElementById(
+      `coluna${letraAtual.charCodeAt(0)}linha${i}`
+    );
 
     if (coluna && validaLetraPorPosicao(letraAtual, i) && valido) {
       coluna.classList.add("destacado");
@@ -182,14 +182,24 @@ function validaPalavra() {
     }
   }
 
+  if (valido) {
+    var proximoEstado = document.getElementById(
+      `linha${palavra.length}coluna0`
+    );
+    if (!proximoEstado || !proximoEstado.textContent.endsWith("*")) {
+      valido = false;
+    }
+  }
+
   if (campoInput.value.endsWith(" ")) {
-    if (valido && palavra !== "") {
+    if (valido && palavra !== "" && palavra !== " ") {
       if (!adicionarAoHistorico("aceitas", palavra.trim())) {
         exibirAviso("A palavra já foi validada anteriormente.", false);
       }
     } else {
       limparDestacados();
       adicionarAoHistorico("rejeitadas", palavra.trim());
+      exibirAviso("Palavra rejeitada.", false);
     }
     campoInput.value = "";
   }
@@ -201,7 +211,9 @@ function adicionarAoHistorico(lista, palavra) {
       ? document.getElementById("lista-palavras-aceitas")
       : document.getElementById("lista-palavras-rejeitadas");
 
-  var itensExistentes = Array.from(listaElementos.children).map((item) => item.textContent);
+  var itensExistentes = Array.from(listaElementos.children).map(
+    (item) => item.textContent
+  );
   if (itensExistentes.includes(palavra)) return false;
 
   var novoItem = document.createElement("li");
@@ -216,7 +228,9 @@ function validaLetraPorPosicao(letra, posicao) {
 
 function limparDestacados() {
   var colunasDestacadas = document.querySelectorAll(".destacado, .invalido");
-  colunasDestacadas.forEach((coluna) => coluna.classList.remove("destacado", "invalido"));
+  colunasDestacadas.forEach((coluna) =>
+    coluna.classList.remove("destacado", "invalido")
+  );
 }
 
 function limpar() {
@@ -233,9 +247,11 @@ function limpar() {
   var divValidaPalavraAceitas = document.querySelector(".lista-palavras");
   divValidaPalavraAceitas.innerHTML = "";
 
-  var divValidaPalavraRejeitada = document.getElementById("lista-palavras-rejeitadas");
+  var divValidaPalavraRejeitada = document.getElementById(
+    "lista-palavras-rejeitadas"
+  );
   divValidaPalavraRejeitada.innerHTML = "";
-  
+
   const corpoTabela = document.getElementById("tbody");
   if (corpoTabela) {
     corpoTabela.innerHTML = "";
